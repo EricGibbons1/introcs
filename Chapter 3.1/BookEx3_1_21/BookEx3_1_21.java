@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class BookEx3_1_21
 {
     public static void main(String[] args)
-    { // remove http stuff if there, break into sections, store in array, pring array
+    { // remove http stuff if there, break into sections, store in array, print array
         String site = args[0];
         CharSequence http = "http://";
         if (site.contains(http)) site = site.substring(site.indexOf("w"),site.length());

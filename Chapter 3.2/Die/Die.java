@@ -9,14 +9,24 @@ public class Die
         side = sides;
     }
     
-    public int roll()
+    public void roll()
     {
-        return 1 + (int) (Math.random() * side);
+        side = 1 + (int) (Math.random() * 6);
+    }
+    
+    public String toString()
+    {
+        return side + "";
     }
     
     public static void main(String[] args)
     {
         Die die1 = new Die(6);
-        for (int i = 0; i < 20; i++) System.out.println(die1.roll());
+        System.out.println(die1);
+        for (int i = 0; i < 20; i++)
+        {
+            die1.roll();
+            System.out.println(die1);
+        }
     }
 }

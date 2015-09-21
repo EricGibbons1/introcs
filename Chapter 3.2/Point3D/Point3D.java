@@ -16,24 +16,25 @@ public class Point3D
     public int z()
     { return z; }
     
-    public static double distance(Point3D point1, Point3D point2)
+    public double distance(Point3D point1)
     {
-        int distx = point1.x() - point2.x();
-        int disty = point1.y() - point2.y();
-        int distz = point1.z() - point2.z();
+        int distx = x - point1.x();
+        int disty = y - point1.y();
+        int distz = z - point1.z();
         return Math.sqrt(distx * distx + disty * disty + distz * distz);
     }
     
-    public static double distanceSquared(Point3D point1, Point3D point2)
+    public double distanceSquared(Point3D point1)
     {
-        return distance(point1, point2) * distance(point1, point2);
+        double distance = distance(point1);
+        return distance * distance;
     }
     
-    public static int distanceL1(Point3D point1, Point3D point2)
+    public int distanceL1(Point3D point1)
     {
-        int distx = Math.abs(point1.x() - point2.x());
-        int disty = Math.abs(point1.y() - point2.y());
-        int distz = Math.abs(point1.z() - point2.z());
+        int distx = Math.abs(x - point1.x());
+        int disty = Math.abs(y - point1.y());
+        int distz = Math.abs(z - point1.z());
         return distx + disty + distz;
     }
     
@@ -41,9 +42,9 @@ public class Point3D
     {
         Point3D point1 = new Point3D(1, 1, 1);
         Point3D point2 = new Point3D(5, 5, 5);
-        System.out.println(distance(point1, point2));
-        System.out.println(distanceSquared(point1, point2));
-        System.out.println(distanceL1(point1, point2));
+        System.out.println(point1.distance(point2));
+        System.out.println(point1.distanceSquared(point2));
+        System.out.println(point1.distanceL1(point2));
     }
 }
         
